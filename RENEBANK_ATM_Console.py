@@ -115,7 +115,6 @@ class ATM:
         newAccount.next = None
         newAccount.Balance = 0
 
-        # Same account-number generation as the original C++ program.
         for i in range(6):
             newAccount.AccountNumber += chr(ord('0') + random.randint(0, 5))
 
@@ -407,7 +406,7 @@ class ATM:
         self.password()
 
     def checkFlashDrive(self):
-        # Python equivalent of checking whether the entered drive path exists.
+        # checking whether the entered drive path exists.
         if not os.path.isdir(self.drivePath):
             clear_screen()
             headDisplay()
@@ -460,8 +459,7 @@ class ATM:
             reader = csv.reader(file)
             header = next(reader, None)
             row = next(reader, [])
-
-        # Preserve the original C++ load order:
+            
         # AccountNumber, LastName, FirstName, Birthday, ContactNumber, PIN, Balance.
         newAccount.AccountNumber = row[0]
         newAccount.LName = row[1]
