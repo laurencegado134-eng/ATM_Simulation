@@ -742,6 +742,8 @@ class ATM:
 
         if Deposit < 100:
             print("| " + "Minimum deposit is PHP100!".ljust(45) + "|")
+        elif Deposit % 50 != 0:
+            print("| " + "You can't add coins.".ljust(45) + "|")
         else:
             self.current.Balance += Deposit
             self.save_account()
@@ -797,6 +799,14 @@ class ATM:
             print("|                                              |")
             print("| Available to withdraw: PHP" +
                   str(self.current.Balance - 5000).ljust(25) + "|")
+            print("|                                              |")
+            print("|==============================================|")
+        elif Withdraw % 50 != 0:
+            print("|==============================================|")
+            print("|              INVALID AMOUNT                  |")
+            print("|==============================================|")
+            print("|                                              |")
+            print("| Cannot dispense coins!                       |")
             print("|                                              |")
             print("|==============================================|")
         else:
